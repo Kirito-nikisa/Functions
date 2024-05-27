@@ -3,26 +3,27 @@
 using namespace std;
 
 
-unsigned long long factorial(int n) {
-	if (n < 0) {
-		cout << "Error: Factorial is not defined for negative numbers." << endl;
-		return -1;
+
+bool isPrime(int n) {
+	if (n <= 1) {
+		return false;
 	}
-	unsigned long long result = 1;
-	for (int i = 1; i <=n; ++i)
-	{
-		result *= i;
-	}
-	return result;
+	for (int i = 2; i * i <= n; ++i) {
+		if (n % i == 0) {
+			return false;
+		}
+	}return true;
 }
 
 int main() {
 	int number;
 	cout << "Enter number: ";
 	cin >> number;
-	unsigned long long result = factorial(number);
-	if (result != -1) {
-		cout << "Factorial of " << number << " is " << result << endl;
+	if (isPrime(number)) {
+		cout << "number is prime " << endl;
+	}
+	else {
+		cout << "number is not prime "  << endl;
 	}
 	return 0;
 }
